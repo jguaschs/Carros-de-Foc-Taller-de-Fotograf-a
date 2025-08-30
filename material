@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Material para la Travesía - Carros de Foc</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            padding: 20px;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 177, 153, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.2) 0%, transparent 50%);
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 70%, #0f3460 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '⭐';
+            font-size: 4rem;
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            opacity: 0.2;
+            animation: twinkle 3s ease-in-out infinite alternate;
+        }
+        
+        .header::after {
+            content: '🌌';
+            font-size: 2rem;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            opacity: 0.3;
+            animation: twinkle 4s ease-in-out infinite alternate;
+        }
+        
+        @keyframes twinkle {
+            0% { opacity: 0.2; }
+            100% { opacity: 0.6; }
+        }
+        
+        .logo {
+            font-size: 2.8rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            letter-spacing: 2px;
+        }
+        
+        .subtitle {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+        
+        .instagram-handles {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .instagram-handle {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .instagram-handle:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .content {
+            padding: 35px;
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8ecff 100%);
+        }
+        
+        .section {
+            margin-bottom: 35px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 18px;
+            padding: 30px;
+            position: relative;
+            border-left: 6px solid #1a1a2e;
+            box-shadow: 0 8px 25px rgba(26, 26, 46, 0.1);
+            backdrop-filter: blur(5px);
+        }
+        
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #1a1a2e;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .icon {
+            font-size: 2rem;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+        }
+        
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+            margin-top: 20px;
+        }
+        
+        .item {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 249, 255, 0.9) 100%);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #16213e;
+            box-shadow: 0 4px 15px rgba(26, 26, 46, 0.08);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        
+        .item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 25px rgba(26, 26, 46, 0.15);
+        }
+        
+        .item-text {
+            font-size: 0.95rem;
+            color: #2c3e50;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 18px;
+            padding: 30px;
+            text-align: center;
+            margin: 30px 0;
+            border: none;
+            color: white;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+        
+        .highlight-text {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .sub-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 70%, #0f3460 100%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .footer-emoji {
+            font-size: 1.6rem;
+            margin-left: 12px;
+        }
+        
+        .tip-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-radius: 18px;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 6px solid #00bcd4;
+            box-shadow: 0 6px 20px rgba(0, 188, 212, 0.2);
+        }
+        
+        .tip-title {
+            font-weight: bold;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .date-location {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 15px;
+            border-radius: 15px;
+            margin-top: 25px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .date-text {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .location-text {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">MATERIAL PARA LA TRAVESÍA</div>
+            <div class="subtitle">Carros de Foc - Taller de Fotografía</div>
+            
+            <div class="date-location">
+                <div class="date-text">24 - 28 SEPT 2025</div>
+                <div class="location-text">PARC NACIONAL AIGÜESTORTES</div>
+            </div>
+            
+            <div class="instagram-handles">
+                <div class="instagram-handle">@fotografiando_el_eden</div>
+                <div class="instagram-handle">@guiesdarrel</div>
+                <div class="instagram-handle">@weathersitges</div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <!-- Material Necesario -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="icon">🎒</span>
+                    Material Necesario
+                </div>
+                <div class="items-grid">
+                    <div class="item">
+                        <div class="item-text">• Chaqueta impermeable<br>• Ropa de abrigo<br>• Ropa transpirable<br>• Pantalones de trekking</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-text">• Calcetines de montaña<br>• Botas de montaña<br>• Guantes y braga</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-text">• Funda mochila impermeable<br>• Gafas de sol y gorra<br>• Crema solar (recomendamos ecológica)<br>• Protección labial (recomendamos ecológica)</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-text">• Mochila de montaña (mín 30L)<br>• Frontal LED (recargable)<br>• Saco de dormir</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Material Fotográfico -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="icon">📸</span>
+                    Material Fotográfico
+                </div>
+                <div class="items-grid">
+                    <div class="item">
+                        <div class="item-text">• Cámara (réflex o mirrorless)<br>• Objetivos varios (gran angular recomendado)<br>• Trípode resistente y ligero</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-text">• Baterías extra + cargadores<br>• Tarjetas de memoria adicionales<br>• Filtros (polarizador, ND)</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-text">• Funda impermeable para cámara<br>• Paños de limpieza<br>• Disparador remoto (opcional)</div>
+                    </div>
+                </div>
+                
+                <!-- Consejos de Edén -->
+                <div class="tip-box" style="background: linear-gradient(135deg, #667eea, #764ba2); margin-top: 20px;">
+                    <div class="tip-title" style="color: white;">🌟 Consejos de Edén para Fotografía Nocturna</div>
+                    <div class="sub-text" style="color: white;">
+                        Como la parte principal de la foto será de <strong>noche</strong>, necesitaréis:
+                        <br><br>
+                        <strong>📷 Lentes luminosas:</strong> f/2.8 como mínimo ideal, con focales de 18mm para abajo (17, 14, 11mm)
+                        <br><br>
+                        <strong>🔋 Baterías:</strong> De sobra y siempre cargadas
+                        <br><br>
+                        <strong>💡 Luz frontal:</strong> Para poder moverse de noche con seguridad y siempre con batería de sobra
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Alimentación -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="icon">🥤</span>
+                    Alimentación
+                </div>
+                <div class="item">
+                    <div class="item-text">
+                        <strong>💧 Agua:</strong> Mínimo 1,5 litros en botella reutilizable (no plástico de un solo uso, no vidrio)
+                    </div>
+                </div>
+                <div class="item" style="margin-top: 15px;">
+                    <div class="item-text">
+                        <strong>🍎 Comida en ruta:</strong> Frutos secos, chocolate, geles deportivos
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recomendado -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="icon">💡</span>
+                    Recomendado
+                </div>
+                <div class="items-grid">
+                    <div class="item">
+                        <div class="item-text">• Bastones telescópicos<br>• Neceser personal y toalla<br>• Botiquín básico</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-text">• Libreta y bolígrafo<br>• Powerbank para dispositivos<br>• Linterna adicional</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Info Important -->
+            <div class="highlight-box">
+                <div class="highlight-text">⚠️ IMPRESCINDIBLE ⚠️</div>
+                <div class="sub-text">
+                    <strong>Vestirse por capas</strong> - mínimo 3 capas: camiseta corta o larga, 
+                    sudadera (ropa de abrigo) + capa exterior impermeable (Gore-tex o similar).<br><br>
+                    Para 5 días de ruta: 3-4 camisetas de recambio, 2 sudaderas de recambio 
+                    y 4-5 calcetines de recambio.
+                </div>
+            </div>
+            
+            <!-- Tip Descuentos -->
+            <div class="tip-box" style="background: linear-gradient(135deg, #74b9ff, #0984e3);">
+                <div class="tip-title" style="color: white;">🏪 Descuentos en Material</div>
+                <div class="sub-text" style="color: white;">
+                    En caso de tener que comprar material de montaña, tenemos descuentos en las tiendas 
+                    <strong>Intemperie - Campbase</strong>
+                </div>
+            </div>
+            
+            <!-- Tip Ecológico -->
+            <div class="tip-box">
+                <div class="tip-title">🌱 Consejo Ecológico</div>
+                <div class="sub-text">
+                    Si hay que comprar material, cuidar su fabricación. 
+                    Recomendamos materiales reciclados u orgánicos para minimizar el impacto ambiental.
+                </div>
+            </div>
+            
+            <!-- Recordatorio Fotográfico -->
+            <div class="highlight-box" style="background: linear-gradient(135deg, #ffeaa7, #fab1a0);">
+                <div class="highlight-text">📷 ¡Recordad proteger vuestro equipo fotográfico del frío y la humedad!</div>
+                <div class="sub-text">Las condiciones de montaña pueden afectar el rendimiento de las cámaras y baterías</div>
+            </div>
+            
+            <!-- Recordatorio -->
+            <div class="highlight-box" style="background: linear-gradient(135deg, #a29bfe, #fd79a8);">
+                <div class="highlight-text">👟 ¡Recordad que es muy importante ir bien calzados!</div>
+                <div class="sub-text">No llevar zapatillas deportivas tipo trail, deben ser botas con protección de tobillo</div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            Imprescindible: ¡Muchas ganas de pasarlo bien, disfrutar de la Naturaleza, aprender fotografía y compartirlo con nosotros!
+            <span class="footer-emoji">🌌📸</span>
+        </div>
+    </div>
+</body>
+</html>
